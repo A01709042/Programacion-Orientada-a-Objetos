@@ -1,4 +1,4 @@
-Nota: la documentación está en formato de devlog para esta entrega, se editará un nuevo readme para la versión 1.3, una vez que se hayan implementado los 
+Nota: la documentación está en formato de devlog para esta entrega, se editará un nuevo readme para la versión 1.2 (tercera entrega), una vez que se hayan implementado los 
 cambios efectuados en el diagrama UML, favor de scrollear hasta abajo para ver el devlog y changelog
 
 
