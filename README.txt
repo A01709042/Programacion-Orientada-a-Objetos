@@ -1,7 +1,16 @@
+Nota: la documentación está en formato de devlog para esta entrega, se editará un nuevo readme para la versión 1.3, una vez que se hayan implementado los 
+cambios efectuados en el diagrama UML, favor de scrollear hasta abajo para ver el devlog y changelog
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 Sebastián Soto Ochoa
+
+
+README y Devlog
 
 
 
@@ -47,6 +56,7 @@ IIIIIIIIII      TTTTTTTTTTT      EEEEEEEEEEEEEEEEEEEEEE SSSSSSSSSSSSSSS   MMMMMM
 
 
 
+V 1.0
 
 En esta primera entrega desarrollé 2 clases:
 
@@ -79,5 +89,32 @@ Las tres clases tienen sus respectivos métodos getter y setter
 
 En el main se puede ver cómo se modifican algunos valores para ser corregidos después de que al declarar las instancias estaban mal
 Se vuelven a imprimir una vez corregidos para comprobar que cambiaron
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Devlog v1.1 (segunda entrega):
+
+)Se definió la situación problema:
+-Tienes un catálogo de música extenso y te gustan los sintetizadores así que quieres un programa que te ayude a guardar toda clase de
+información sobre los álbumes y artistas que más te gustan, además de los sintetizadores que más te gustan y pretendes así poder 
+tener una pequeña base de datos sobre el tema para consultar todo tipo de información al respecto.
+
+-A quién le puede servir:
+Audiófilos, una tienda de música, una disquera, una página de descargas de música
+
+)Se debe implementar todo de nuevo utilizando agregación, composición y herencia
+
+
+)Changelog:
+-Se hizo un rework completo de la estructura, ahora se heredan los atributos iguales, como el nombre del artista. 
+
+-También se aprovechará la herencia, composición y agregación para crear clases y 
+sub-clases que en algunos casos forman atributos dentro de estos últimos. Por ejemplo, un álbum está hecho de canciones pero una canción también hereda algunos atributos del
+álbum como el artista etc. 
+
+-Finalmente se decidió cambiar los atributos y métodos para que fueran más útiles así como para poner en práctica lo aprendido.
+
 
 
