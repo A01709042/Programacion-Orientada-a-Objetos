@@ -62,15 +62,18 @@ Album crea_album(){
     cin >> n;
 
 //ciclo for desde 0 hasta nuestro número de canciones
-  for (int i = 0; i>= n; n = n+1){
+  for (int i = 0; i>= n; i++){
     cout << "Cuál es el nombre de la canción? \n";
     string cancion_input;
     cin >> cancion_input;
     //se usa la función agrega canción en cada uno de los steps 
-    album.agregaCancion(cancion_input, artista_input_album, n);
 
-  return album;
-      }
+    album.agregaCancion(cancion_input, artista_input_album, n){
+
+        return album;
+    }
+
+  }
 }
 
 int main(){

@@ -3,7 +3,9 @@ using namespace std;
 #include <iostream>
 #include <cctype>
 #include <cstring>
-#include "Cancion.h"
+
+#ifndef ALBUM_H
+#define ALBUM_H
 
 
 class Album{
@@ -68,7 +70,7 @@ void Album::agregaCancion(string titulo_cancion, string art, int numero_de_track
   }
 
 
-
+#endif
 
 
 

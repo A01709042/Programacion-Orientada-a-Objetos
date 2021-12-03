@@ -1,6 +1,10 @@
 using namespace std;
 #include <string>
-#include "synth.h"
+#include "Synth.h"
+#include "Album.h"
+
+#ifndef CANCION_H
+#define CANCION_H
 
 class Cancion: public Album{
 private:
@@ -124,6 +128,6 @@ void Cancion::crea_synth(){
 
 
 
-
+#endif
 
 

@@ -1,7 +1,10 @@
 using namespace std;
 #include <string>
 #include <iostream>
-#include <Album.h>
+#include "Album.h"
+
+#ifndef COMPILACION_H
+#define COMPILACION_H
 
 //variables privadas incluyendo nuestra agregación de álbumes
 class Compilacion{
@@ -34,5 +37,6 @@ void set_album(Album alb[100], int num){
   }
 }
 
+#endif
 
 
