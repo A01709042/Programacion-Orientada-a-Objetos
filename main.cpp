@@ -21,53 +21,126 @@ ____) || (_) || |_| (_) |
 
 */
 
-#include <iostream>
+
 #include <string>
-#include "classes.h"
+#include <iostream>
+#include "Synth.h"
+#include "Album.h"
+#include "Cancion.h"
+#include "Compilacion.h"
 using namespace std;
 
+//funcion que imprime el menu
+
+void print_menu(){
+
+  cout << "Bienvenido a mi programa. " << "\n";
+  cout << "Presiona 1 para crear un album \n";
+  cout << "Presiona 2 para crear una canción \n";
+  cout << "Presiona 3 para crear una discografía/compilación de álbumes \n";
+  cout << "Presiona 4 para salir \n";
+
+}
+
+//funcion que crea albumes con canciones adentro
+Album crea_album(){
+
+  cout << "Cuál es el nombre del artista? \n";
+      string artista_input_album;
+      cin >> artista_input_album;
+    
+  cout << "Cuál es el título del álbum? \n";
+    string titulo_input_album;
+    cin >> titulo_input_album;
+
+//llamamos una instancia de album
+  Album album(titulo_input_album, artista_input_album);
+
+  cout << "Cuántas canciones tiene? \n";
+
+    int n;
+    cin >> n;
+
+//ciclo for desde 0 hasta nuestro número de canciones
+  for (int i = 0; i>= n; n = n+1){
+    cout << "Cuál es el nombre de la canción? \n";
+    string cancion_input;
+    cin >> cancion_input;
+    //se usa la función agrega canción en cada uno de los steps 
+    album.agregaCancion(cancion_input, artista_input_album, n);
+
+  return album;
+      }
+}
 
 int main(){
 
-  Synth juno106(True, True, False, 1)
-  std::cout <<juno106.get_polifonico()<< " "\
-            <<juno106.get_analogico()<< " "\
-            <<juno106.get_modular()<< " "\
-            <<juno106.get_num_de_filtros()<< std::end1;
+  int opcion = 0;
 
-  juno106.set_num_de_filtros(2);
+  while (opcion != 4){
 
-  std::cout <<juno106.get_num_de_filtros()<< std::end1;
+    print_menu();
+
+    cin >> opcion;
+
+    if (opcion == 1){
+
+//objeto album vacío que llenamos con nuestra función
+    Album album_holder = crea_album();
 
 
+        }
 
 
-  Album phaedra("Phaedra", "Tangerine Dream", 0, "Desconocido")
-  std::cout <<phaedra.get_tracks()<< " "\
-            <<phaedra.get_synth()<< " " std::end1;
-
-  phaedra.set_tracks(4);
-  phaedra.set_synth("VCS3");
-
-  std::cout <<phaedra.get_tracks()<< " "\
-            <<phaedra.get_synth()<< " " std::end1;
+    }
 
 
 
+    if (opcion == 2){
 
-  str artista_album1 = phaedra.get_artista();
-  Cancion phaedra_song1(" ", artista_album1, "VCS3", "Secuenciador")
-  std::cout <<phaedra_song1.get_songtitle()<< " "\
-            <<phaedra_song1.get_synth2()<<" " std::end1;
+      cout << "Cuál es el nombre de la canción? \n";
+      string titulo_input_cancion;
+      cin >> titulo_input_cancion;
 
-  phaedra_song1.set_songtitle("Phaedra");
-  phaedra_song1.set_synth2("Secuenciador Moog");
+      cout << "Cuál es el nombre del artista? \n";
+      string artista_input_cancion;
+      cin >> artista_input_cancion;
 
-  std::cout <<phaedra_song1.get_songtitle()<< " "\
-            <<phaedra_song1.get_synth2()<<" " std::end1;
+//llamamos una instancia del objeto canción
+      Cancion cancion(titulo_input_cancion, artista_input_cancion);
+
+    }
 
 
 
+    if (opcion == 3){
+
+      cout << "Cuántos álbumes quieres crear?";
+      int num_albumes;
+      cin >> num_albumes;
+// llamamos una instancia con un arreglo de albumes vacíos desde 1 hasta el número que nos indicaron
+      Album albumes[num_albumes];
+// creamos un objeto de compilación de álbumes
+      Compilacion comp(albumes, num_albumes);
+// creamos un arreglo para guardar los valores que usaremos en la función
+      Album alb[num_albumes];
+
+      for (int i; i >= num_albumes; i = i+1){
+//en cada posición de album vamos a guardar un álbum nuevo
+        alb[i] = crea_album();
+
+      }
+//mandamos los albumes para meterlos dentro de la discografía/compilación
+      for (int i; i >= num_albumes; i = i + 1){
+        comp.set_album(alb, i);
+
+      
+
+
+  }
+
+
+  }
 
 
 }

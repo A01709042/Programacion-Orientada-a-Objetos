@@ -1,16 +1,7 @@
-Nota: la documentación está en formato de devlog para esta entrega, se editará un nuevo readme para la versión 1.2 (tercera entrega), una vez que se hayan implementado los 
-cambios efectuados en el diagrama UML, favor de scrollear hasta abajo para ver el devlog y changelog
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 Sebastián Soto Ochoa
 
 
-README y Devlog
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -56,65 +47,43 @@ IIIIIIIIII      TTTTTTTTTTT      EEEEEEEEEEEEEEEEEEEEEE SSSSSSSSSSSSSSS   MMMMMM
 
 
 
-V 1.0
+V 2.0
 
-En esta primera entrega desarrollé 2 clases:
-
-La clase "Synth" que es para guardar datos de sintetizadores (teclados) 
-
-Atributos: 
-	Analógico (true) o en caso de ser false es digital
-	Polifónico, o en caso de ser false es monofónico
-	Modular, que en caso de ser false es un sintetizador "normal"
-	numero de filtros, que guarda el número de filtros que tiene (un dispositivo electrónico que filtra bandas de frecuencias específicas)
-
-La clase "Album" que es para guardar álbumes musicales
-
-Atributos:
-	Titulo que guarda el título del album
-	Artista que guarda el nombre del artista
-	Tracks que guarda el número de canciones que tiene
-	Synth que guarda el nombre del sintetizador que se utilizó principalmente para este album
-
-La clase "Cancion" que es para guardar canciones 
-
-Atributos:
-	songtitle que guarda el nombre de la canción
-	songartist que guarda el nombre del artista
-	synth1 que guarda un sintetizador usado en la canción
-	synth2 que guarda otro sintetizador usado en la canción
-
-Las tres clases tienen sus respectivos métodos getter y setter 
+Problema que resuelve: Imagina que tienes una tienda de discos, una página de venta de música o una colección muy extensa y 
+quieres catalogarlos. A través de este programa puedes crear una canción, un álbum o una compilación musical que el usuario podría
+pasar de la memoria a un archivo de texto (se vende por separado).
 
 
-En el main se puede ver cómo se modifican algunos valores para ser corregidos después de que al declarar las instancias estaban mal
-Se vuelven a imprimir una vez corregidos para comprobar que cambiaron
+Cómo lo resuelve:
+La clase Album hereda atributos a la clase canción, para no tener que escribir el nombre del artista una y otra vez,
+ y dentro de la clase canción se crea la clase synth, ya que una canción sin instrumentos no tiene sentido, 
+ y un instrumento no nos sirve de nada si no está en una canción por lo menos en este contexto.
+
+ Así también la clase album tiene composición con la clase canción, pero la clase canción puede ser creada de manera independiente
+ como, por ejemplo, si se tiene un single y no hace falta escribir qué album es. 
+
+ Por último la clase compilación tiene agregación de álbumes ya que se añaden en el main, por si en el futuro se agregue 
+ alguna forma de guardar la información en un savefile, así el usuario podría agregar albumes pre-existentes. De igual manera, 
+ de la forma en que está hecho, si se elimina la clase Compilacion, sus clases álbum no serían eliminadas.
+
+ Sin embargo si se eliminara una clase album sus canciones sí serían eliminadas ya que no nos servirían. Uno puede crear canciones
+ individuales siempre que lo desee y estas son completamente independientes de los álbumes, por lo que si alguien crea un album
+ y después lo quiere borrar, pues sería un error mantener tooooodas las canciones, que también deberían ser borradas.
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ Archivos:
+
+ Main.cpp : se crea ya sea una canción, album o compilación. (canción es indep, album tiene canciones dep, compilación tiene
+albumes independientes).
+
+-Para crear una canción sólo se crea la instancia con su instancia dependiente de clase synth.
+-Para crear un album igual sólo se usan los constructores y funciones de album, con su clase cancion que tiene una clase synth
+	a través de una función para facilitar el proceso en subsecuentes opciones
+-Para crear una compilación se usa un ciclo for y se crean sus albumes independientes, con canciones dependientes y synth dependientes.
 
 
-Devlog v1.1 (segunda entrega):
+ Synth: sólo se puede crear al crear una canción, es 100% dependiente de esta. 
 
-)Se definió la situación problema:
--Tienes un catálogo de música extenso y te gustan los sintetizadores así que quieres un programa que te ayude a guardar toda clase de
-información sobre los álbumes y artistas que más te gustan, además de los sintetizadores que más te gustan y pretendes así poder 
-tener una pequeña base de datos sobre el tema para consultar todo tipo de información al respecto.
+Album: Se crea con canciones dependientes. 
 
--A quién le puede servir:
-Audiófilos, una tienda de música, una disquera, una página de descargas de música
-
-)Se debe implementar todo de nuevo utilizando agregación, composición y herencia
-
-
-)Changelog:
--Se hizo un rework completo de la estructura, ahora se heredan los atributos iguales, como el nombre del artista. 
-
--También se aprovechará la herencia, composición y agregación para crear clases y 
-sub-clases que en algunos casos forman atributos dentro de estos últimos. Por ejemplo, un álbum está hecho de canciones pero una canción también hereda algunos atributos del
-álbum como el artista etc. 
-
--Finalmente se decidió cambiar los atributos y métodos para que fueran más útiles así como para poner en práctica lo aprendido.
-
-
-
+Compilacion: Se crea con una lista vacía de álbumes que puede ser llenada con ellos.
